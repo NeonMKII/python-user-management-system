@@ -1,38 +1,27 @@
 print("Система управления пользователями")
-print("Проверка данных пользователя")
 
-full_name = input("Введите ФИО: ").strip()
-login = input("Введите логин: ").strip()
-role = input("Введите роль (Администратор/Пользователь): ").strip()
-birth_year_text = input("Введите год рождения: ").strip()
-current_year_text = input("Введите текущий год: ").strip()
+while True:
+    print("\nГлавное меню")
+    print("1 — Проверить данные пользователя")
+    print("2 — Показать статистику сеанса")
+    print("3 — Показать три учебные попытки")
+    print("0 — Выход")
 
-# Сначала проверяем обязательные текстовые поля
-if not full_name or not login or not role:
-    print("Ошибка: ФИО, логин и роль обязательны для заполнения.")
+    menu_choice = input("Выберите пункт: ").strip()
 
-# Проверяем, что годы состоят из цифр
-elif not birth_year_text.isdigit() or not current_year_text.isdigit():
-    print("Ошибка: год рождения и текущий год должны быть целыми числами.")
+    if menu_choice == "1":
+        print("Проверка пользователя будет выполнена здесь.")
 
-else:
-    birth_year = int(birth_year_text)
-    current_year = int(current_year_text)
+    elif menu_choice == "2":
+        print("Статистика будет добавлена следующим этапом.")
 
-    # Проверяем допустимость роли
-    if role != "Администратор" and role != "Пользователь":
-        print("Ошибка: допустимы роли 'Администратор' или 'Пользователь'.")
+    elif menu_choice == "3":
+        for attempt_number in range(1, 4):
+            print(f"Попытка №{attempt_number}")
 
-    # Проверяем диапазон года рождения
-    elif birth_year < 1900 or birth_year > current_year:
-        print("Ошибка: проверьте корректность года рождения.")
+    elif menu_choice == "0":
+        print("Работа программы завершена.")
+        break
 
     else:
-        # Если все проверки пройдены, вычисляем возраст
-        user_age = current_year - birth_year
-
-        print("\nКарточка пользователя")
-        print(f"ФИО: {full_name}")
-        print(f"Логин: {login}")
-        print(f"Роль: {role}")
-        print(f"Возраст: {user_age}")
+        print("Ошибка: выберите пункт 0, 1, 2 или 3.")
