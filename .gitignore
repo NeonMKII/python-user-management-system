@@ -11,3 +11,6 @@ venv/
 
 # IDE local files
 .idea/
+
+__pycache__/
+*.pyc
